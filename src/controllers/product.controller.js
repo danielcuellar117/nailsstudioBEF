@@ -1,6 +1,5 @@
 const { registerProduct, getAllProducts, getOneProductById, removeOneProductById, updateOneProductById } = require("../services/product.service");
 
-
 const createProduct = async ( req, res ) => {
     const inputData = req.body;
     const payload = req.authUser;   // Obtenemos el payload desde middleware
