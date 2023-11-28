@@ -21,8 +21,9 @@ app.use(
 );    
 app.use( '/api/categories', require( './routes/category.routes' ) );
 
+app.use('/api/services', require('./routes/services.routes'));
 
-app.use('/api/services', require('./routes/services.routes'))
+app.use('/api/talleres', require('./routes/taller.routes'));
 
 
 dbConection();      // Invoca la configuracion de DB, es decir: Pone a funcionar la BD
