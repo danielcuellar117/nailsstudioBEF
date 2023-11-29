@@ -4,7 +4,7 @@ const UserModel = require( '../models/User' );
 
 
 const createDefaultUsers = async () => {
-    const pass = ')947W*euG8^E';
+    const pass = 'Nailsstudio1.';
 
     // Encriptar la contrasenia
     const salt = genSaltSync();                 
@@ -26,14 +26,14 @@ const createDefaultUsers = async () => {
                 name: "Yecid",
                 username: "yecid@ns.com",
                 password: hashSync( pass, salt ),
-                role: 'admin'
+                role: 'superadmin'
             }).save(),
             new UserModel({
-                name: "Juan",
-                username: "juan@ns.com",
+                name: "Pirlo",
+                username: "pirlo@ns.com",
                 password: hashSync( pass, salt ),
-                role: 'user'
-            })
+                role: 'superadmin'
+            }).save()
             
         ]);
 
