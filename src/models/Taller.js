@@ -9,14 +9,14 @@ const TallerSchema = new Schema({
     description: {
         type: String,
     },
-    pirce: {
+    price: {
         type: Number,
         default: 0
     },
     urlImage: String,
     userId:{
         type: String,
-        required: true
+        required: false
     }
 }, {
     timestamps: true
