@@ -1,4 +1,4 @@
-const {registerService, getAllServices, deleteOneServiceById, getOneServiceById}= require('../services/service.service')
+const {registerService, getAllServices, deleteOneServiceById, getOneServiceById, updateOneServiceById}= require('../services/service.service')
 
 
 const createService = async (req,res)=>{
@@ -61,11 +61,11 @@ const getServiceById = async ( req, res ) => {
 }
 const removeServiceById = async ( req, res ) => {
     const service_id = req.params.id;
-
+    
     try {
         const data = await deleteOneServiceById( service_id );
         
-        res.status( 204 ).json({ ok: true, data });
+        res.status( 200 ).json({ ok: true, data });
     } 
     catch( error ) {
         console.error( error );
@@ -81,11 +81,11 @@ const updateServiceById = async(req,res)=>{
     const inputData = req.body;
 
     try {
-        const updateOneServiceById = await updateOneServiceById(service_id, inputData)
+        const data = await updateOneServiceById(service_id, inputData)
 
         res.status(206).json({
             ok:true, 
-            updatedProduct
+            updatedProduct: data
         });
     } catch (error) {
         console.error(error);
