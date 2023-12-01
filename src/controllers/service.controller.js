@@ -80,12 +80,14 @@ const updateServiceById = async(req,res)=>{
     const service_id = req.params.id;
     const inputData = req.body;
 
+    console.log(inputData);
+
     try {
         const data = await updateOneServiceById(service_id, inputData)
 
         res.status(206).json({
             ok:true, 
-            updatedProduct: data
+            data
         });
     } catch (error) {
         console.error(error);

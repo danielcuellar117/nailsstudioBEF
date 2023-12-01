@@ -25,5 +25,9 @@ async function updateOneServiceById(id, updatedService) {
 }
 
 module.exports = {
-    registerService, getAllServices, getOneServiceById, deleteOneServiceById, updateOneServiceById
+    registerService, 
+    getAllServices, 
+    getOneServiceById, 
+    deleteOneServiceById, 
+    updateOneServiceById
 }

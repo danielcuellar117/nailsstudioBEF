@@ -6,15 +6,14 @@ const {
   getServices,
   updateServiceById,
   removeServiceById,
+  getServiceById,
 } = require('../controllers/service.controller');
-const {
-  getOneServiceById
-} = require('../services/service.service');
+
 const { validate } = require('../models/Service');
 
 const router = Router(); // Invoca el Router de Express
 
-router.get('/:id', getOneServiceById);
+router.get('/:id', getServiceById);
 router.get('/', authUser, getServices);
 router.post('/', authUser, createService); // post crea recursos (verbo HTTP)
 router.delete('/:id', authUser, removeServiceById);
