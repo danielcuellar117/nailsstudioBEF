@@ -13,7 +13,7 @@ async function getOneServiceById(id) {
 }
 
 async function deleteOneServiceById(id) {
-    return await ServiceModel.findOneAndDelete({_id:id})
+    return await ServiceModel.findByIdAndDelete({_id:id})
 }
 
 async function updateOneServiceById(id, updatedService) {
@@ -25,5 +25,9 @@ async function updateOneServiceById(id, updatedService) {
 }
 
 module.exports = {
-    registerService, getAllServices, getOneServiceById, deleteOneServiceById, updateOneServiceById
+    registerService, 
+    getAllServices, 
+    getOneServiceById, 
+    deleteOneServiceById, 
+    updateOneServiceById
 }

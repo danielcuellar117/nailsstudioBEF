@@ -1,15 +1,22 @@
-const { Router } = require( 'express' );    // Importa el Router de Express
+const { Router } = require('express'); // Importa el Router de Express
 
 const { authUser } = require('../middlewares/validate-user.middleware');
-const { createService, getServices, updateServiceById } = require('../controllers/service.controller');
-const { getOneServiceById, deleteOneServiceById } = require('../services/service.service');
+const {
+  createService,
+  getServices,
+  updateServiceById,
+  removeServiceById,
+  getServiceById,
+} = require('../controllers/service.controller');
 
-const router = Router();                    // Invoca el Router de Express
+const { validate } = require('../models/Service');
 
-router.get('/:id', getOneServiceById  );
+const router = Router(); // Invoca el Router de Express
+
+router.get('/:id', getServiceById);
 router.get('/', authUser, getServices);
-router.post('/', authUser, createService)//post crea recuros (verbo HTTP)
-router.delete('/:id', authUser, deleteOneServiceById );
+router.post('/', authUser, createService); // post crea recursos (verbo HTTP)
+router.delete('/:id', authUser, removeServiceById);
 router.patch('/:id', authUser, updateServiceById);
 
-module.exports = router;                    // Expone el router para que sea usado por otros archivos
+module.exports = router; // Expone el router para que sea usado por otros archivos
