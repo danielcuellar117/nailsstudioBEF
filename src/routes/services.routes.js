@@ -14,7 +14,7 @@ const { validate } = require('../models/Service');
 const router = Router(); // Invoca el Router de Express
 
 router.get('/:id', getServiceById);
-router.get('/', authUser, getServices);
+router.get('/', getServices);
 router.post('/', authUser, createService); // post crea recursos (verbo HTTP)
 router.delete('/:id', authUser, removeServiceById);
 router.patch('/:id', authUser, updateServiceById);
